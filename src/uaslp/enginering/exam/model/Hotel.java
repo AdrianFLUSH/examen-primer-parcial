@@ -2,15 +2,37 @@ package uaslp.enginering.exam.model;
 
 import java.util.ArrayList;
 
-public class Hotel {
+public class Hotel
+{
     private ArrayList<Reservation> reservations;
+    private String Name;
+    private ArrayList<Room> rooms;
 
-
-    public Hotel() {
+    public Hotel(String name)
+    {
         reservations = new ArrayList<>();
+        rooms = new ArrayList<>();
+        this.Name = name;
     }
 
-    public void reserveRoom(int roomNumber, Guest guest, String arrivalDate, int nights) {
+    public String getName()
+    {
+        return Name;
+    }
+
+    public void addRoom(Room room)
+    {
+        rooms.add(room);
+    }
+
+
+    public ArrayList<Room> getRooms()
+    {
+        return rooms;
+    }
+
+    public void reserveRoom(int roomNumber, Guest guest, String arrivalDate, int nights)
+    {
         Reservation reservation = new Reservation();
 
         reservation.setRoomNumber(roomNumber);
@@ -21,7 +43,8 @@ public class Hotel {
         reservations.add(reservation);
     }
 
-    public ArrayList<Reservation> getReservations() {
+    public ArrayList<Reservation> getReservations()
+    {
         return reservations;
     }
 }
